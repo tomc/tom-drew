@@ -1,0 +1,7 @@
+\contentsline {chapter}{Contents}{i}{section*.1}
+\contentsline {part}{\partnumberline {I}Bidding Rules}{1}{part.1}
+\contentsline {chapter}{\chapternumberline {1}Definitions \& Meta Rules}{2}{chapter.1}
+\contentsline {part}{\partnumberline {II}Opening Bids}{4}{part.2}
+\contentsline {part}{\partnumberline {III}Defensive Bidding}{5}{part.3}
+\contentsline {part}{\partnumberline {IV}Carding}{6}{part.4}
+\contentsline {part}{\partnumberline {V}Post Mortem}{7}{part.5}

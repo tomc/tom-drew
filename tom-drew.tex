@@ -1,0 +1,66 @@
+\documentclass[letter,10pt,oneside]{memoir}
+\usepackage{bridgewinners} % taken without modification, but changing things below
+\usepackage{bridge-mini} % reduced version of my bridge.sty
+\usepackage{fontspec}
+\usepackage{unicode-math}  % to allow for new fonts in math mode (i.e., suit symbols)
+\usepackage{subfiles} % To have chapters be in separate docs
+\usepackage[margin=1.25in]{geometry}
+\usepackage{longtable}
+
+\setmainfont{DejaVu Serif}
+\setmathfont{DejaVu Serif}
+
+\cftsetindents{part}{-1em}{3em} % Adjust table of content defaults, numbers and titles were running together.
+\cftsetindents{chapter}{-1em}{3em}
+\cftsetindents{section}{0em}{3em}
+\setcounter{tocdepth}{1} % include sections
+
+\abnormalparskip{1em} % add space between paragraphs for readability
+
+% redefine the default color for diamonds and clubs
+\definecolor{clubcolor}{RGB}{23,118,88}
+\definecolor{diamondcolor}{RGB}{249,131,10}
+
+% What suit symbols to use?  Flag for BW printing vs ebook/web
+\newboolean{bwprint}
+\setboolean{bwprint}{true}
+\ifthenelse{\boolean{bwprint}}{%
+	\standardsuitsymbols}{%
+	\colorsuitsymbols}
+% ---------------- %
+
+\letterten
+\chapterstyle{ell}
+\renewcommand{\chapterheadstart}{\vspace*{0em}}
+
+\setlength\parindent{0pt} % No identation for all paragraphs.
+
+\begin{document}
+\frontmatter
+\title{Carmichael/Hoskins System Notes}
+\maketitle
+\tableofcontents
+
+\mainmatter
+\part{Bidding Rules}
+\subfile{metarules}
+
+\part{Opening Bids}
+%\subfile{summary}
+%\subfile{1c}
+%\subfile{1d}
+%\subfile{1maj}
+%\subfile{1nt}
+%\subfile{2c}
+%\subfile{Wk 2s}
+%\subfile{2nt}
+%\subfile{3x}
+%\subfile{3nt}
+%\subfile{otheropener}
+
+\part{Defensive Bidding}
+\part{Carding}
+\part{Post Mortem}
+%\subfile{postmortem}
+\backmatter
+\end{document}

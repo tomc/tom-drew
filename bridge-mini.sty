@@ -1,0 +1,82 @@
+% Note, % = a comment to end of line
+
+\ProvidesPackage{bridge-mini}
+\usepackage{url,color,parskip,lipsum}
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue,pdfstartview=FitH]{hyperref}  
+\usepackage{ulem} % for strikeout font and \sout command
+\RequirePackage{longtable}
+\RequirePackage{tabu}
+
+%
+% \usepackage[top=2cm,bottom=2cm]{geometry}
+%
+% include above line in local file
+
+
+\newcommand{\handpat}[1]{{\sffamily #1}}
+
+\newcommand{\rem}[1]{\textit{\color{blue}#1}} % This used to read \emph instead of \textit, but having strange issues with \emph.
+%\newcommand{\rem}[1]{} % 'production' version
+\newcommand{\ari}[1]{\textit{\color{red}#1}}
+
+\newcommand{\first}{1$^{st}$\thinspace}
+\newcommand{\second}{2$^{nd}$\thinspace}
+\newcommand{\third}{3$^{rd}$\thinspace}
+\newcommand{\fourth}{4$^{th}$\thinspace}
+\newcommand{\fifth}{5$^{th}$\thinspace}
+\newcommand{\half}{$\frac{1}{2}$\thinspace}
+
+
+%
+% Modified description
+% In the original description, \labelwidth is set to z@, which seems to 
+%   mean 'length of item'
+% Setting it to a fixed width gives smooth tabbing, so long as no text
+%   exceeds that width
+% leftmargin is distance the block starts from the left margin
+% itemindent is a first-line-only indent, set to 0 for smooth multi-line 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\renewenvironment{description}
+	{\list{}{\labelwidth 20mm \itemindent 0cm \leftmargin 22mm
+		\let\makelabel\descriptionlabel}}
+	{\endlist}
+%%%%%
+
+\tabulinesep = 1mm
+\newenvironment{bidtable}[1]
+{
+	\begin{longtabu} to \textwidth {|>{\bfseries}lX|}
+	\hline
+	\multicolumn{2}{|l|}{#1}\\
+	\hline
+	\endfirsthead
+	\hline
+	\multicolumn{2}{|l|}{#1 continued\ldots}\\	
+	\hline
+	\endhead
+	\hline
+	\endfoot
+		}
+		{ 
+	\end{longtabu}
+}
+
+\newenvironment{bidbox}[1]
+{\begin{center}
+		\begin{longtable}{|p{0.9\textwidth}|}
+			\hline
+			#1\\
+			\hline
+			\endfirsthead
+			\hline
+			#1 cont\ldots\\
+			\hline
+			\endhead
+			\hline
+			\endfoot
+}{
+	\end{longtable}
+	\end{center}
+}
